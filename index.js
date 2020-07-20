@@ -2,19 +2,20 @@ import express from 'express'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import session from 'express-session'
+const routes = require('./routes/api');
 
 const app = express()
 
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 require('dotenv').config();
 
 app.get('/', function (req, res) {
-  res.send('hello world')
+  res.send('hello world') 
 })   
 
-app.listen(5000, () => console.log('Example app listening on port 5000!'))
+app.listen( PORT , () => console.log('Example app listening on port 5000!'))
 
 //connect to the database
 mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
@@ -33,12 +34,17 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+
+
+
 app.use(session({
   secret: process.env.SECRET,
   resave: true,
   saveUninitialized: true,
   maxAge: 5 * 60 * 60 * 1000, // 8 hours
 }))
+
+app.use('/api', routes);
 
 app.use(express.static("client/build"));
   
