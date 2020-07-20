@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import session from 'express-session'
 const routes = require('./routes/api');
+import path from 'path';
 
 const app = express()
 
