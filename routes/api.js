@@ -95,60 +95,6 @@ router.post('/signup', (req, res, next) => {
     })
 })
 
-
-//creates a todo 
-router.post('/addtodo', requireAuth, (req, res, next) => {
-  Todo.findOneAndUpdate({ "username": req.session.user }, {
-    $push: {
-      "data": [
-        {
-          "_id": new ObjectID(),
-          "todo": req.body.todo,
-          "label": req.body.label,
-          "status": req.body.status,
-          "due": req.body.due
-        }]
-    }
-  }, { upsert: true }).then( data => res.status(201).json({ message : "created"}))
-    .catch(err => res.status(403).json({ message: "Unable to create" }))
-})
-
-//get all todos of particular user
-router.get('/gettodos', requireAuth, (req, res, next) => {
-  Todo.findOne({ "username": req.session.user })
-    .then( data => { res.send(data.data) })
-})
-
-//updates a todo by  id
-router.put('/updatetodo', requireAuth, (req, res, next) => {
-  var date = req.body.due;
-  var dateObject = new Date(date);
-  Todo.findOneAndUpdate({ "username": req.session.user }, {
-    "data.$[element]":
-    {
-      "_id": ObjectID(req.body._id),
-      "todo": req.body.todo,
-      "label": req.body.label,
-      "status": req.body.status,
-      "due": dateObject
-    }
-  }, { arrayFilters: [{ "element._id": ObjectID(req.body._id) }] })
-    .then(data => res.status(200).json({ message: "updated" } ))
-    .catch(err => res.status(403).json({ message: "update failed" } ))
-})
-
-//deletes a (todo)s by the given object (ID)s
-router.delete('/deletetodo', requireAuth, (req, res, next) => {
-  Todo.findOneAndUpdate({ "username": req.session.user }, {
-    $pull: {
-      "data": {
-        _id: { $in: (req.body.ids).map(id => { return ObjectID(id) }) }
-      }
-    }
-  }).then(data => res.status(200).json({ message: "deleted" } ))
-    .catch( err => res.status(403).json({ message: "delete failed"}))
-})
-
 router.get('/logout', (req, res, next) => {
   if (req.session) {
     req.session.destroy( (err) => {
