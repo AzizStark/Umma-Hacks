@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Calculator from './calculator/calculator';
 import Donate from './donate/donate';
+import Content from './content/contents';
+import Editor from './editor/editor'
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 export default class App extends React.Component {
@@ -42,7 +44,7 @@ export default class App extends React.Component {
               Zakat calculator
             </a>
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="/blog">
               Islamic content
             </a>
 
@@ -65,6 +67,8 @@ export default class App extends React.Component {
         <Router>
           <Route exact path="/donate" component={Donate} />
           <Route exact path="/zakat" component={Calculator} />
+          <Route exact path="/blog" component={Content} />
+          <Route exact path="/editor" component={Editor} />
         </Router>
 
       </div>

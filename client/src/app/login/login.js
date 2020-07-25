@@ -58,7 +58,8 @@ class Login extends Component {
                                 {/* <figure className="avatar">
                                     <h1> Umma Site </h1>
                                 </figure> */}
-                                <br/>
+                                <br />
+                                
                                 <form onSubmit={this.login}>                 
                                     <div className="field">
                                         <div className="control">
