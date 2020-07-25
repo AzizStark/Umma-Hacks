@@ -29,8 +29,13 @@ export default class Dashboard extends React.Component {
                     <div className="column" style={{ backgroundColor: 'rgb(230, 213, 255)', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
                         <div className="box">
                             <h2 className="title is-4">Community Dashboard: </h2>
-                            <h4>Community userid: { this.state.user} </h4>
-                            <h4>Community details: </h4>
+                            <h4> ID: { this.state.user} </h4> <input className="input is-small" type="number" placeholder="Enter postal code" /*This functn sets the input value into state variable --> */ />
+                            <h4> Name: </h4>
+                            <h4> Address: </h4>
+                            <h4> Zipcode: </h4>
+                            <h4> Contact information: </h4>
+                            <h4> Donation link: </h4>
+                            <br />
                             <input className="input is-normal" type="number" placeholder="Enter postal code" /*This functn sets the input value into state variable --> */ />
                         </div>
                     </div>
