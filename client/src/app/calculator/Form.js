@@ -30,6 +30,8 @@ export default class Form extends React.Component {
 
   formSubmit = () => {
     const { nisab, goldValue, goldOz, silverValue, silverOz, cash, deposits, loan, businessInvestments, stock, borrowedMoney, wages, taxRentUtility } = this.state;
+    // nisab
+    let theNisab = 6056.85;
     // gold and silver values 
     let gold = goldOz * goldValue;
     let silver = silverOz * silverValue;
@@ -37,13 +39,13 @@ export default class Form extends React.Component {
     let totalCash = cash + deposits + businessInvestments + loan;
     // liabilities 
     let totalLiabilities = borrowedMoney + wages + taxRentUtility;
-    let total = parseInt(gold) + parseInt(silver) + parseInt(totalCash) + parseInt(stock) - parseInt(totalLiabilities);
+    let total = parseFloat(gold) + parseFloat(silver) + parseFloat(totalCash) + parseFloat(stock) - parseFloat(totalLiabilities);
     // this.setState({total: parseInt(total)});
-    if (total >= 6056.85) {
+    if (total >= theNisab) {
       document.querySelector("#zakatOutput").innerHTML = `<h6>Total Zakat Due This Year: ${0.025 * total}</h6>`;
     }
     else {
-      document.querySelector("#zakatOutput").innerHTML = "<h6>No Zakat Due This Year</h6>"
+      document.querySelector("#zakatOutput").innerHTML = "<h6>No Zakat Due This Year</h6>";
     }
   } 
   render() {
