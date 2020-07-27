@@ -47,7 +47,7 @@ export default class Calculator extends React.Component {
                     <div className="column" style={{ backgroundColor: 'rgb(230, 213, 255)', display: 'flex', flexDirection: 'column', alignItems: 'center', minHeight: '100vh' }}>
                         <h5 className="title is-5" style={{color: '#3298dc', marginTop: '6%'}}>Are you tired of Zakat guides being archaic and outdated? <br />
                         Are you worried you might not know how to fulfill this pillar of Islam? <br />
-                        Fear notght place! 
+                        Fear not, you are in the right place! 
                         </h5>
                
                         <Form />

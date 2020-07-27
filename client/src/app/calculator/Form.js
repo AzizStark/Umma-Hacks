@@ -1,7 +1,5 @@
 
 import React from 'react';
-import logo from './logo.svg';
-import './App.css'; 
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -55,45 +53,43 @@ export default class Form extends React.Component {
               <label>
                 Nisab:
                 <input type="number" name="nisab" placeholder="$6056.85" onChange= {e => this.setState({nisab: e.target.value})}/>
-              </label>
+              </label> <br />
               <label>
                 Gold Value Today:
                 <input type="number" name="goldValue" placeholder="$2018.95" onChange= {e => this.setState({goldValue: e.target.value})}/>
-              </label>
+              </label>  <br />
               <label>
                 Gold (in oz):
                 <input type="number" name="goldOz" onChange= {e => this.setState({goldOz: e.target.value})}/>
-              </label>
+              </label>  <br />
               <label>
                 Silver Value Today:
                 <input type="number" name="silverValue" placeholder="$22.89" onChange= {e => this.setState({silverValue: e.target.value})}/>
-              </label>
+              </label>  <br />
               <label>
                 Silver (in oz):
                 <input type="number" name="silverOz" onChange= {e => this.setState({silverOz: e.target.value})}/>
-              </label>
+              </label>  <br />
               <label>
                 Cash:
                 <input type="number" name="cash" onChange= {e => this.setState({cash: e.target.value})} />
-              </label>
+              </label>  <br />
               <label>
                 Loan:
                 <input type="number" name="loan" onChange= {e => this.setState({loan: e.target.value})}/>
-              </label>
+              </label>  <br />
               <label>
                 Stock Value:
                 <input type="number" name="stock" onChange= {e => this.setState({stock: e.target.value})} />
-              </label>
+              </label>  <br />
               <label>
                 Liability:
                 <input type="number" name="liability" onChange= {e => this.setState({liability: e.target.value})}/>
-              </label>
+              </label>  <br />
               <button type="button" onClick = {() => this.formSubmit()}>Submit</button>
             </form>
           <div id="zakatOutput">
-            
           </div> 
-
         </div>
     )
   }
